@@ -185,6 +185,7 @@
                         <outlet property="chassisLabel" destination="DW8-q2-nJo" id="UdQ-nN-LKg"/>
                         <outlet property="construtorLogo" destination="kK3-Ss-6lR" id="9ZV-5a-wG0"/>
                         <outlet property="lightsOutBtn" destination="a28-xy-eNx" id="dbj-uS-03m"/>
+                        <outlet property="pickerButton" destination="NUu-VN-UNk" id="Nm2-X6-ILy"/>
                         <outlet property="seasonLabel" destination="9Yw-xA-Hqm" id="7cQ-k0-5fA"/>
                     </connections>
                 </viewController>
