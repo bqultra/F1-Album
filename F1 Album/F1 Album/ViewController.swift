@@ -11,8 +11,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     
     let screenWidth = UIScreen.main.bounds.width - 10
@@ -20,14 +18,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var selectedRow = 0
 
     @IBOutlet weak var construtorLogo: UIImageView!
-    
     @IBOutlet weak var chassisLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
-    
     @IBOutlet weak var carImage: UIImageView!
-    
     @IBOutlet weak var pickerButton: UIButton!
-    
     @IBOutlet weak var lightsOutBtn: UIButton!
     
     let teamLogos = [
@@ -54,43 +48,39 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     ]
     
     let mclarenCars = [
-        ["", "2019"],
-        ["", "2020"],
+        ["MCL34", "2019"],
+        ["MCL35", "2020"],
         ["MCL35M", "2021"],
-        ["", "2022"],
+        ["CL36", "2022"],
         ["MCL60", "2023"]
     ]
     
     let mercedesCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["W10", "2019"],
+        ["W11", "2020"],
+        ["W12", "2021"],
+        ["W13", "2022"],
+        ["W14", "2023"]
     ]
     
     let alpineCars = [
-        ["", "2019"],
-        ["", "2020"],
         ["", "2021"],
         ["", "2022"],
         ["", "2023"]
     ]
     
     let astonMartinCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["AMR21", "2021"],
+        ["AMR22", "2022"],
+        ["AMR23", "2023"]
     ]
     
     let alfaRomeoCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["C38", "2019"],
+        ["C39", "2020"],
+        ["C41", "2021"],
+        ["C42", "2022"],
+        ["C43", "2023"]
     ]
     
     let alphaTauriCars = [
@@ -124,6 +114,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         ["", "2022"],
         ["", "2023"]
     ]
+    
+    struct loadCar {
+        let carArray: [[String]],
+            mainCarImg: UIImageView,
+            mainChassisLabel: UILabel,
+            mainSeasonLabel: UILabel
+        
+        init(getCarArray: [[String]], getCarImg: UIImageView, getChassisLabel: UILabel, getSeasonLabel: UILabel) {
+            carArray = getCarArray
+            mainCarImg = getCarImg
+            mainChassisLabel = getChassisLabel
+            mainSeasonLabel = getSeasonLabel
+            
+            let randomCar  = Int.random(in: 0 ..< carArray.count)
+            mainCarImg.image = UIImage(named: carArray[randomCar][0])
+            mainChassisLabel.text = carArray[randomCar][0]
+            mainSeasonLabel.text = carArray[randomCar][1]
+        }
+        
+        
+    }
     
     
     @IBAction func pickTeam(_ sender: UIButton) {
@@ -165,57 +176,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let currentButton = pickerButton.currentTitle!
         switch currentButton {
         case "Scuderia Ferrari":
-            let randomFerrari = Int.random(in: 0 ..< ferrariCars.count)
-            carImage.image = UIImage(named: ferrariCars[randomFerrari][0])
-            chassisLabel.text = ferrariCars[randomFerrari][0]
-            seasonLabel.text = ferrariCars[randomFerrari][1]
+            _ = loadCar(getCarArray: ferrariCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "McLaren":
-            let randomMcLaren = Int.random(in: 0 ..< mclarenCars.count)
-            carImage.image = UIImage(named: mclarenCars[randomMcLaren][0])
-            chassisLabel.text = mclarenCars[randomMcLaren][0]
-            seasonLabel.text = mclarenCars[randomMcLaren][1]
+            _ = loadCar(getCarArray: mclarenCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Mercedes":
-            let randomMercedes = Int.random(in: 0 ..< mercedesCars.count)
-            carImage.image = UIImage(named: mercedesCars[randomMercedes][0])
-            chassisLabel.text = mercedesCars[randomMercedes][0]
-            seasonLabel.text = mercedesCars[randomMercedes][1]
+            _ = loadCar(getCarArray: mercedesCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Alpine":
-            let randomAlpine = Int.random(in: 0 ..< alpineCars.count)
-            carImage.image = UIImage(named: alpineCars[randomAlpine][0])
-            chassisLabel.text = alpineCars[randomAlpine][0]
-            seasonLabel.text = alpineCars[randomAlpine][1]
+            _ = loadCar(getCarArray: alpineCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Aston Martin":
-            let randomAstonMartin = Int.random(in: 0 ..< astonMartinCars.count)
-            carImage.image = UIImage(named: astonMartinCars[randomAstonMartin][0])
-            chassisLabel.text = astonMartinCars[randomAstonMartin][0]
-            seasonLabel.text = astonMartinCars[randomAstonMartin][1]
+            _ = loadCar(getCarArray: astonMartinCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Alfa Romeo":
-            let randomAlfaRomeo = Int.random(in: 0 ..< alfaRomeoCars.count)
-            carImage.image = UIImage(named: alfaRomeoCars[randomAlfaRomeo][0])
-            chassisLabel.text = alfaRomeoCars[randomAlfaRomeo][0]
-            seasonLabel.text = alfaRomeoCars[randomAlfaRomeo][1]
+            _ = loadCar(getCarArray: alfaRomeoCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Alpha Tauri":
-            let randomAlphaTauri = Int.random(in: 0 ..< alphaTauriCars.count)
-            carImage.image = UIImage(named: alphaTauriCars[randomAlphaTauri][0])
-            chassisLabel.text = alphaTauriCars[randomAlphaTauri][0]
-            seasonLabel.text = alphaTauriCars[randomAlphaTauri][1]
+            _ = loadCar(getCarArray: alphaTauriCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Haas":
-            let randomHaas = Int.random(in: 0 ..< haasCars.count)
-            carImage.image = UIImage(named: haasCars[randomHaas][0])
-            chassisLabel.text = haasCars[randomHaas][0]
-            seasonLabel.text = haasCars[randomHaas][1]
+            _ = loadCar(getCarArray: haasCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Red Bull Racing":
-            let randomRedBull = Int.random(in: 0 ..< redBullCars.count)
-            carImage.image = UIImage(named: redBullCars[randomRedBull][0])
-            chassisLabel.text = redBullCars[randomRedBull][0]
-            seasonLabel.text = redBullCars[randomRedBull][1]
+            _ = loadCar(getCarArray: redBullCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         case "Williams":
-            let randomWilliams = Int.random(in: 0 ..< williamsCars.count)
-            carImage.image = UIImage(named: williamsCars[randomWilliams][0])
-            chassisLabel.text = williamsCars[randomWilliams][0]
-            seasonLabel.text = williamsCars[randomWilliams][1]
+            _ = loadCar(getCarArray: williamsCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
         default:
-            print("Error")
+            print("Error loading a car")
         }
     }
     
