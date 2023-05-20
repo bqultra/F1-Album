@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         ["MCL34", "2019"],
         ["MCL35", "2020"],
         ["MCL35M", "2021"],
-        ["CL36", "2022"],
+        ["MCL36", "2022"],
         ["MCL60", "2023"]
     ]
     
@@ -64,9 +64,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     ]
     
     let alpineCars = [
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["A521", "2021"],
+        ["A522", "2022"],
+        ["A523", "2023"]
     ]
     
     let astonMartinCars = [
@@ -84,48 +84,51 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     ]
     
     let alphaTauriCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["AT01", "2020"],
+        ["AT02", "2021"],
+        ["AT03", "2022"],
+        ["AT04", "2023"]
     ]
     
     let haasCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["VF-19", "2019"],
+        ["VF-20", "2020"],
+        ["VF-21", "2021"],
+        ["VF-22", "2022"],
+        ["VF-23", "2023"]
     ]
     
     let redBullCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["RB15", "2019"],
+        ["RB16", "2020"],
+        ["RB16B", "2021"],
+        ["RB18", "2022"],
+        ["RB19", "2023"]
     ]
     
     let williamsCars = [
-        ["", "2019"],
-        ["", "2020"],
-        ["", "2021"],
-        ["", "2022"],
-        ["", "2023"]
+        ["FW42", "2019"],
+        ["FW43", "2020"],
+        ["FW43B", "2021"],
+        ["FW44", "2022"],
+        ["FW45", "2023"]
     ]
     
     struct loadCar {
         let carArray: [[String]],
             mainCarImg: UIImageView,
             mainChassisLabel: UILabel,
-            mainSeasonLabel: UILabel
+            mainSeasonLabel: UILabel,
+            constructorButton: UIButton,
+            buttonColor: UIColor
         
-        init(getCarArray: [[String]], getCarImg: UIImageView, getChassisLabel: UILabel, getSeasonLabel: UILabel) {
+        init(getCarArray: [[String]], getCarImg: UIImageView, getChassisLabel: UILabel, getSeasonLabel: UILabel, getConstructorBtn: UIButton, getButtonColor: UIColor) {
             carArray = getCarArray
             mainCarImg = getCarImg
             mainChassisLabel = getChassisLabel
             mainSeasonLabel = getSeasonLabel
+            constructorButton = getConstructorBtn
+            buttonColor = getButtonColor
             
             let randomCar  = Int.random(in: 0 ..< carArray.count)
             mainCarImg.image = UIImage(named: carArray[randomCar][0])
@@ -176,25 +179,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let currentButton = pickerButton.currentTitle!
         switch currentButton {
         case "Scuderia Ferrari":
-            _ = loadCar(getCarArray: ferrariCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: ferrariCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.red)
         case "McLaren":
-            _ = loadCar(getCarArray: mclarenCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: mclarenCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.orange)
         case "Mercedes":
-            _ = loadCar(getCarArray: mercedesCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: mercedesCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.cyan)
         case "Alpine":
-            _ = loadCar(getCarArray: alpineCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: alpineCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.blue)
         case "Aston Martin":
-            _ = loadCar(getCarArray: astonMartinCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: astonMartinCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.green)
         case "Alfa Romeo":
-            _ = loadCar(getCarArray: alfaRomeoCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: alfaRomeoCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.red)
         case "Alpha Tauri":
-            _ = loadCar(getCarArray: alphaTauriCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: alphaTauriCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.magenta)
         case "Haas":
-            _ = loadCar(getCarArray: haasCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: haasCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.gray)
         case "Red Bull Racing":
-            _ = loadCar(getCarArray: redBullCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: redBullCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.blue)
         case "Williams":
-            _ = loadCar(getCarArray: williamsCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+            _ = loadCar(getCarArray: williamsCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel, getConstructorBtn: lightsOutBtn, getButtonColor: UIColor.blue)
         default:
             print("Error loading a car")
         }
