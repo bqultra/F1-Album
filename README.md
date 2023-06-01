@@ -1,3 +1,7 @@
+<p width="100%">
+        <img src="https://github.com/bqultra/F1-Album/assets/64577539/ce5c7998-33db-4de1-bc5d-e4f74b740a45">
+</p>
+
 # F1 Album
 
 F1 Album is an iOS App which shows random Formula One Car depends on which Constructor user choose.
@@ -58,3 +62,8 @@ To store chassis and season the car was racing there are multiple 2D Arrays. The
 
 
 ## App in action
+
+<p align="center">
+        <img src="https://github.com/bqultra/F1-Album/assets/64577539/a07b2dcf-0461-4276-9f8d-06c07e84a5be" width="300">
+</p>
+
