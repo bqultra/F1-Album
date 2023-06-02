@@ -10,7 +10,7 @@ F1 Album is an iOS App which shows random Formula One Car depends on which Const
 
 ### Consructors dictionary
 
-There is a dictionary that stores constructor names and their shortcuts which are then used to pick constructor in UIPickerView and also to load their logo on the top of an App.
+There is a dictionary that stores constructor names and their shortcuts, which are then used to pick a constructor in UIPickerView and also to load their logo on the top of an App.
 
 ```swift
 
@@ -33,7 +33,7 @@ let teamLogos = [
 
 ### Cars 2D Arrays
 
-To store chassis and season the car was racing there are multiple 2D Arrays. They are used to display image of a car and also change labels of chassis and season on the main page.
+To store chassis and season the car was racing, there are multiple 2D arrays. They are used to displaying image of a car and also change labels of chassis and season on the main page.
 
 ```swift
 
@@ -61,7 +61,7 @@ To store chassis and season the car was racing there are multiple 2D Arrays. The
 
 ## Selecting constructor
 
-User select constructors via UIPickerView button. There are currently 10 teams to choose from and confirm choice tapping Select action. It is done by UIAlertController which is configured to load constructor logo on the top of the app and set title of UIPickerView button to chosen constructor name.
+User select constructors via UIPickerView button. There are currently 10 teams to choose from and confirm choice tapping Select action. It is done by UIAlertController which is configured to load constructor logo on the top of the app and set the title of UIPickerView button to the chosen constructor name.
 
 ```swift
 
@@ -80,7 +80,7 @@ alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAl
 
 ## Loading F1 car image
 
-Random car image with it's chassis label and season label are loaded on button tap depending which constructor user choosen. Its because of the UIPickerView button title which was set. After button "Lights out!" is tapped app is checking title via Switch statement and different cases.
+Random car image with its chassis label and season label are loaded on button tap depending on which constructor user chosen. It's because of the UIPickerView button title, which was set. After the button "Lights out!" is tapped, the app is checking title via Switch statement and different cases.
 
 ```swift
 
@@ -98,7 +98,7 @@ switch currentButton {
 }
 ```
 
-Each case useses an initialization of Structure called loadCar.
+Each case uses an initialization of Structure called loadCar.
 
 ```swift
 
