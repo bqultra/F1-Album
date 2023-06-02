@@ -52,14 +52,77 @@ To store chassis and season the car was racing there are multiple 2D Arrays. The
         ["MCL36", "2022"],
         ["MCL60", "2023"]
     ]
+    
+    .
+    .
+    .
 
 ```
 
 ## Selecting constructor
 
+User select constructors via UIPickerView button. There are currently 10 teams to choose from and confirm choice tapping Select action. It is done by UIAlertController which is configured to load constructor logo on the top of the app and set title of UIPickerView button to chosen constructor name.
+
+```swift
+
+let alert = UIAlertController(title: "Choose constructor", message: "", preferredStyle: .actionSheet)
+
+alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in }))
+alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+                    self.selectedRow = pickerView.selectedRow(inComponent: 0)
+                    let selected = Array(self.teamLogos)[self.selectedRow]
+                    let name = selected.key
+                    self.construtorLogo.image = UIImage(named: self.teamLogos[name]!)
+                    self.pickerButton.setTitle(name, for: .normal)
+
+                }))
+```
 
 ## Loading F1 car image
 
+Random car image with it's chassis label and season label are loaded on button tap depending which constructor user choosen. Its because of the UIPickerView button title which was set. After button "Lights out!" is tapped app is checking title via Switch statement and different cases.
+
+```swift
+
+let currentButton = pickerButton.currentTitle!
+switch currentButton {
+ case "Scuderia Ferrari":
+  _ = loadCar(getCarArray: ferrariCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+ case "McLaren":
+  _ = loadCar(getCarArray: mclarenCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+ case "Mercedes":
+  _ = loadCar(getCarArray: mercedesCars, getCarImg: carImage, getChassisLabel: chassisLabel, getSeasonLabel: seasonLabel)
+  .
+  .
+  .
+}
+```
+
+Each case useses an initialization of Structure called loadCar.
+
+```swift
+
+    struct loadCar {
+        let carArray: [[String]],
+            mainCarImg: UIImageView,
+            mainChassisLabel: UILabel,
+            mainSeasonLabel: UILabel,
+            constructorButton: UIButton,
+            buttonColor: UIColor
+        
+        init(getCarArray: [[String]], getCarImg: UIImageView, getChassisLabel: UILabel, getSeasonLabel: UILabel) {
+            carArray = getCarArray
+            mainCarImg = getCarImg
+            mainChassisLabel = getChassisLabel
+            mainSeasonLabel = getSeasonLabel
+            
+            let randomCar  = Int.random(in: 0 ..< carArray.count)
+            mainCarImg.image = UIImage(named: carArray[randomCar][0])
+            mainChassisLabel.text = carArray[randomCar][0]
+            mainSeasonLabel.text = carArray[randomCar][1]
+        }
+
+```
 
 ## App in action
 
